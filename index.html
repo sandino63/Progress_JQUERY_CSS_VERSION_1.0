@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="jquery-1.4.2.min.js"></script>
+<style type="text/css">
+DIV,UL,OL /* Left */
+{
+ margin-top: 0px;
+ margin-bottom: 0px;
+}
+</style>
+<script>
+var count = 0 ;
+var count1 = 0;
+var count2 = 0;
+$(document).ready(function(){
+  $("#button,#button1,#button2,#button3").click(function(){
+		var btnval = parseInt(this.name);
+		 var aa = document.getElementById("selectedvalue");
+		 var selectvalue = aa.options[aa.selectedIndex].value;
+		 if(selectvalue == 0){
+				count=count+btnval;
+				if(count <=0)
+					{
+					count = 0;
+					}
+				document.getElementById('mydiv1').innerHTML = count/3+"%";
+				if(count > 300)
+				{
+					$(".inner-right-bar1").css({"background-color":"red","width":"300px"});
+
+				}
+				else
+				{
+					$(".inner-right-bar1").css({"background-color":"green","width":count+"px"});
+				}
+		}
+		 if(selectvalue == 1){
+				count1=count1+btnval;
+				if(count1 < 0)
+					count1 = 0;
+				document.getElementById('mydiv2').innerHTML = count1/3+"%";
+				if(count1 > 300)
+				{
+					$(".inner-right-bar2").css({"background-color":"red","width":"300px"});
+
+				}
+				else
+				{
+					$(".inner-right-bar2").css({"background-color":"green","width":count1+"px"});
+				}
+		}
+		 if(selectvalue == 2){
+				count2=count2+btnval;
+				if(count2 < 0)
+					count2 = 0;
+				document.getElementById('mydiv3').innerHTML = count2/3+"%";
+				if(count2 > 300)
+				{
+					$(".inner-right-bar3").css({"background-color":"red","width":"300px"});
+
+				}
+				else
+				{
+					$(".inner-right-bar3").css({"background-color":"green","width":count2+"px"});
+				}
+		}
+			
+  });
+}); 
+</script>
+</head>
+<body>
+<div class="h1"> <h2>Progress Bar Demo</h2> </div>
+<div  class="inner-right-bar4"></div>
+
+<div class="inner-right-bar5"></div>
+
+<div class="inner-right-bar6"></div>
+<div class="inner-right-bar1"></div>
+
+<div id="mydiv1">
+<div class="wpmd">
+<div >0%</div>
+</div></div>
+
+<div class="inner-right-bar2"></div>
+
+<div id="mydiv2">
+<div class="wpmd">
+<div>0%</div>
+</div></div>
+
+<div class="inner-right-bar3"></div>
+
+<div id="mydiv3">
+<div class="wpmd">
+<div>0%</div>
+</div></div>
+<select id="selectedvalue">
+    <option value="0" >#progress1</option>
+    <option value="1">#progress2</option>
+    <option value="2">#progress3</option>
+</select>
+</select>
+<input name="-75" id="button" type="button"  value="-25">
+<input name="-30" id="button1" type="button" value="-10">
+<input name="30" id="button2" type="button" value="+10">
+<input name="75" id="button3" type="button" value="+25">
+
+</body>
+</html>
